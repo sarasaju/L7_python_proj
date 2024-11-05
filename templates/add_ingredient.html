@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Ingredient</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Ingredient</h1>
+        <form action="{{ url_for('add_ingredient') }}" method="POST">
+            <input type="text" name="ingredient_name" placeholder="Enter ingredient name" required>
+            <input type="number" name="quantity" placeholder="Enter quantity" required>
+            <input type="text" name="unit" placeholder="Enter unit" required>
+            <input type="submit" value="Add Ingredient">
+        </form>
+        <a href="{{ url_for('index') }}" class="nav-button">Back to Home</a>
+    </div>
+</body>
+</html>

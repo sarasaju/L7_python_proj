@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Suggestion</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Suggestion</h1>
+        <form action="{{ url_for('add_suggestion') }}" method="POST">
+            <input type="text" name="customer_name" placeholder="Enter your name" required>
+            <input type="text" name="flavor_suggestion" placeholder="Enter flavor suggestion" required>
+            <input type="text" name="allergy_concern" placeholder="Any allergy concerns?" required>
+            <input type="submit" value="Add Suggestion">
+        </form>
+        <a href="{{ url_for('index') }}" class="nav-button">Back to Home</a>
+    </div>
+</body>
+</html>

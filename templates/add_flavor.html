@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Flavor</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='form.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Flavor</h1>
+        <form action="{{ url_for('add_flavor') }}" method="POST">
+            <input type="text" name="flavor" placeholder="Enter flavor name" required>
+            <input type="text" name="description" placeholder="Enter description" required>
+            <input type="submit" value="Add Flavor">
+        </form>
+        <a href="{{ url_for('index') }}" class="nav-button">Back to Home</a>
+    </div>
+</body>
+</html>
