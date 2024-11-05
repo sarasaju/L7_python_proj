@@ -109,21 +109,30 @@ Use a SQLite viewer or run queries to ensure data is stored correctly.
 
 
 
-# Use a Python base image
-FROM python:3.8-slim
+DOCKER
+Docker file Use the official Python image from the Docker Hub FROM python:3.9 Set the working directory in the container WORKDIR /app Copy the requirements file to the working directory COPY requirements.txt . Install the dependencies RUN pip install --no-cache-dir -r requirements.txt Copy the rest of the application code to the container COPY . . Set the environment variable for Flask ENV FLASK_APP=app.py Expose the port the app runs on EXPOSE 5000 Command to run the application CMD ["flask", "run", "--host=0.0.0.0"]
 
-# Set the working directory
-WORKDIR /app
+Build the Docker image with the following command:
+docker build -t chocolate-house .
 
-# Copy requirements and install them
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+After the image is built, you can run your Docker container with the following command:
+docker run -p 5000:5000 chocolate-house
 
-# Copy the application code
-COPY . .
+Docker Setup
+This project can be built and run using Docker.
 
-# Expose the application port
-EXPOSE 5000
+Prerequisites
+Docker must be installed on your machine.
+Building the Docker Image
+Navigate to the root directory of the project.
+Build the Docker image with the following command:
+docker build -t chocolate-house .
 
-# Command to run the application
-CMD ["python", "app.py"]
+Run the Docker container using the command:
+docker run -p 5000:5000 chocolate-house
+
+Step 5: Verify Everything Works
+After updating your README, run through the Docker build and run steps to ensure everything is functioning as expected.
+Commit your changes to the README and Dockerfile to your Git repository.
+Conclusion
+By following these steps, you will have successfully set up a Docker-based build and run environment for your project, and you will have updated your README file with clear instructions for users on how to use Docker to run the application.
